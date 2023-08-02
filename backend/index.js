@@ -25,9 +25,9 @@ app.use('/api', require("./Routes/DisplayData"))
 
 app.use('/api', require("./Routes/OrderData"))
 
-// app.get('/',(req,res)=>{
-//     res.send('hello word')
-// })
+app.get('/data',(req,res)=>{
+    res.send('hello word')
+})
 
 
 
