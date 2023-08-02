@@ -1,5 +1,5 @@
 const express=require('express');
-
+const User=require('./models/User')
 
 const app=express();
 const port=5000;
@@ -25,10 +25,20 @@ app.use('/api', require("./Routes/DisplayData"))
 
 app.use('/api', require("./Routes/OrderData"))
 
-app.get('/',(req,res)=>{
-    res.send('hello word')
-})
+// app.get('/',(req,res)=>{
+//     res.send('hello word')
+// })
+
+
+
+app.get('/',async(req,res)=>{
+
+    let userArray=await User.find()
+    console.log(userArray)
+        res.send(userArray)
+    })
 app.listen(port,()=>{
     console.log(`running on ${port}` )
 })
+
 
