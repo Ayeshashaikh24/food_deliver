@@ -1,6 +1,6 @@
 const express=require('express');
 const User=require('./models/User')
-
+const Orders=require('./models/Orders')
 const app=express();
 const port=5000;
 
@@ -37,6 +37,14 @@ app.get('/',async(req,res)=>{
     console.log(userArray)
         res.send(userArray)
     })
+
+    app.get('/order',async(req,res)=>{
+
+        let orderArray=await Orders.find()
+        console.log(orderArray)
+            res.send(orderArray)
+        })
+    
 app.listen(port,()=>{
     console.log(`running on ${port}` )
 })
